@@ -3,11 +3,7 @@ import { NavLink, } from "react-router-dom";
 import { Menu, } from "semantic-ui-react";
 import { AccountConsumer, } from "../providers/AccountProvider";
 
-const Navbar = () => {
-
-};
-
-export default Navbar;
+const Navbar = () => (
   <AccountConsumer>
     { account => (
       <Menu>
@@ -22,6 +18,7 @@ export default Navbar;
         </Menu.Item>
       </NavLink>
       </Menu>
-    )};
-    
+    )};    
   </AccountConsumer>
+);
+export default Navbar;

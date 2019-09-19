@@ -2,7 +2,7 @@ import React from "react";
 import { Card, } from "semantic-ui-react";
 import { AccountConsumer, } from "../providers/AccountProvider";
 
-const Account = () => {
+const Account = () => (
   <AccountConsumer>
     { account => (
     <Card>
