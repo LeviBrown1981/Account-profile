@@ -6,8 +6,7 @@ const Account = () => (
   <AccountConsumer>
     { value => (
     <Card>
-      dd
-      {/* <Card.Content>
+      <Card.Content>
         <Card.Header>{value.username}</Card.Header>
         <Card.Meta>
           Date Joined: {value.dateJoined}
@@ -21,7 +20,7 @@ const Account = () => (
       </Card.Content>
       <Card.Content>
         <p>Email: {value.email}</p>
-      </Card.Content> */}
+      </Card.Content>
     </Card>
     )}
   </AccountConsumer>

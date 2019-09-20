@@ -4,11 +4,20 @@ import { AccountConsumer, } from "../providers/AccountProvider";
 
 
 class AccountForm extends React.Component {
-  state = { username: "", membershipLevel: "", email: "", avatar: "", };
+  state = { username: "", membershipLevel: "", email: "", avatar: "", 
+  membershipLevel: this.props.membershipLevel,
+  email: this.props.email,
+  avatar: this.props.avatar, 
+  };
 
-  handleChange = (e, { name, value }) => 
-  this.setState({ [name]: value,  });
-  // [email]: value, [avatar]: value,
+  handleChange = ( e, { name, value, }) => {
+    // email: value, avatar: value,
+  this.setState({
+    [name]: value,
+    // [email]: value,
+    // [avatar]: value,
+  });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault(); 
@@ -17,39 +26,42 @@ class AccountForm extends React.Component {
   };
 
   render() {
-    const { username, membershipLevel, email, avatar, } = this.state;
+    const { username, membershipLevel, } = this.state;
+    // email, avatar,
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Input
-          label="New Username"
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-         />
-          <Form.Select
-            label="Membership Level"
-            name="membershipLevel"
-            value={membershipLevel}
-            onChange={this.handleChange}
-            options={membershipOptions}
-           />
-          <Form.Button color="violet">Confirm</Form.Button>
-          </Form>      
-         /* <Form.Input
-          label="New Email"
-          type="text"
-          name="email"
-          value={email}
-          onChange={this.handleChange}
-          />
+      <>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Input
-          label="New Avatar"
-          type="img"
-          name="avatar"
-          value={avatar}
-          onChange={this.handleChange}
-          /> */
+            label="New Username"
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+            <Form.Select
+              label="Membership Level"
+              name="membershipLevel"
+              value={membershipLevel}
+              onChange={this.handleChange}
+              options={membershipOptions}
+            />
+            <Form.Button color="violet">Confirm</Form.Button>
+            </Form>      
+            {/* <Form.Input
+            label="New Email"
+            type="text"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            />
+            <Form.Input
+            label="New Avatar"
+            type="img"
+            name="avatar"
+            value={avatar}
+            onChange={this.handleChange} */}
+            /> 
+      </>
     )
   };
 };
