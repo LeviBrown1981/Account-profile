@@ -4,17 +4,24 @@ import { AccountConsumer, } from "../providers/AccountProvider";
 
 const Account = () => (
   <AccountConsumer>
-    { account => (
+    { value => (
     <Card>
-      <Card.Content>
-        <Card.Header>{account.username}</Card.Header>
+      dd
+      {/* <Card.Content>
+        <Card.Header>{value.username}</Card.Header>
         <Card.Meta>
-          Date Joined: {account.dateJoined}
+          Date Joined: {value.dateJoined}
         </Card.Meta>
       </Card.Content>
       <Card.Content>
-        <p>Membership Level: {account.membershipLevel}</p>
+        <p>Membership Level: {value.membershipLevel}</p>
       </Card.Content>
+      <Card.Content>
+        <p>Avatar: {value.avatar}</p>
+      </Card.Content>
+      <Card.Content>
+        <p>Email: {value.email}</p>
+      </Card.Content> */}
     </Card>
     )}
   </AccountConsumer>

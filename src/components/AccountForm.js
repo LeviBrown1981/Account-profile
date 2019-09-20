@@ -4,10 +4,11 @@ import { AccountConsumer, } from "../providers/AccountProvider";
 
 
 class AccountForm extends React.Component {
-  state = { username: "", membershipLevel: "", };
+  state = { username: "", membershipLevel: "", email: "", avatar: "", };
 
   handleChange = (e, { name, value }) => 
-  this.setState({ [name]: value, });
+  this.setState({ [name]: value,  });
+  // [email]: value, [avatar]: value,
 
   handleSubmit = (e) => {
     e.preventDefault(); 
@@ -16,7 +17,7 @@ class AccountForm extends React.Component {
   };
 
   render() {
-    const {username, membershipLevel,} = this.state;
+    const { username, membershipLevel, email, avatar, } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
@@ -26,15 +27,29 @@ class AccountForm extends React.Component {
           value={username}
           onChange={this.handleChange}
          />
-        <Form.Select
-          label="Membership Level"
-          name="membershipLevel"
-          value={membershipLevel}
+          <Form.Select
+            label="Membership Level"
+            name="membershipLevel"
+            value={membershipLevel}
+            onChange={this.handleChange}
+            options={membershipOptions}
+           />
+          <Form.Button color="violet">Confirm</Form.Button>
+          </Form>      
+         /* <Form.Input
+          label="New Email"
+          type="text"
+          name="email"
+          value={email}
           onChange={this.handleChange}
-          options={membershipOptions}
-         />
-        <Form.Button color="violet">Save</Form.Button>
-        </Form>      
+          />
+          <Form.Input
+          label="New Avatar"
+          type="img"
+          name="avatar"
+          value={avatar}
+          onChange={this.handleChange}
+          /> */
     )
   };
 };
@@ -44,12 +59,12 @@ const ConnectedAccountForm = (props) => {
   return (
     <AccountConsumer>
       {
-         account => (
+         value => (
            <AccountForm
            { ...props }
-           Username={account.username}
-           membershipLevel={account.membershipLevel}
-           UpdateAccount={account.updateAccount}
+           Username={value.username}
+           membershipLevel={value.membershipLevel}
+           UpdateAccount={value.updateAccount}
            />
          )}
     </AccountConsumer>

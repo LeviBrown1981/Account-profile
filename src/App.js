@@ -10,8 +10,8 @@ const App = () => (
     <Navbar />
       <Container>
         <Switch>
-          <Route exact path='/' render={ ( <div>Home</div>) } />
-          <Route exact path='/account/profile'render={ () => <AccountProfile />} />
+          <Route exact path='/' render={() => <div>Home</div>} />
+          <Route exact path='/account/profile' render={ () => <AccountProfile />} />
         </Switch>
       </Container>
   </>

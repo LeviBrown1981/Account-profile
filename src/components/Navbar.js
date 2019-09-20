@@ -5,7 +5,7 @@ import { AccountConsumer, } from "../providers/AccountProvider";
 
 const Navbar = () => (
   <AccountConsumer>
-    { account => (
+    { value => (
       <Menu>
       <NavLink to="/">
         <Menu.Item>
@@ -14,11 +14,11 @@ const Navbar = () => (
       </NavLink>
       <NavLink to="/account/profile">
         <Menu.Item>
-          { account.username }
+          { value.username }
         </Menu.Item>
       </NavLink>
       </Menu>
-    )};    
+    )}  
   </AccountConsumer>
 );
 export default Navbar;

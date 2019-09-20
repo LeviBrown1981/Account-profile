@@ -12,6 +12,8 @@ class AccountProvider extends React.Component {
     username: "Viciousbebop", 
     dateJoined: "09/19/19", 
     membershipLevel: "Platinum",
+    avatar: "Batman",
+    email: "test@test.com",
     updateAccount: (account) => this.updateAccount(account),
   };
 
@@ -22,7 +24,7 @@ class AccountProvider extends React.Component {
   render() {
     return (
       <AccountContext.Provider value={this.state}>
-        { this.props.children }
+        {this.props.children}
       </AccountContext.Provider>
     );
   };
